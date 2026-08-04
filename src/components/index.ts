@@ -3,3 +3,4 @@ export { Input } from './Input';
 export { TableRow } from './TableRow';
 export { Header } from './Header';
 export { TaskTable } from './TaskTable';
+export { TaskList } from './TaskList';

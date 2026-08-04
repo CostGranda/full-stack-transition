@@ -1,11 +1,5 @@
+import type { Task } from '@/lib/tasks';
 import { TableRow } from './TableRow';
-
-interface Task {
-  id: number;
-  title: string;
-  status: 'completed' | 'pending';
-  dueDate?: string;
-}
 
 interface TaskTableProps {
   tasks: Task[];
