@@ -1,12 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import type { Task } from '@/lib/tasks';
 import { TaskTable } from './TaskTable';
 import { Button } from './Button';
 import { Input } from './Input';
-
-const STORAGE_KEY = 'tasks';
 
 interface TaskListProps {
   initialTasks: Task[];
@@ -15,11 +13,6 @@ interface TaskListProps {
 export function TaskList({ initialTasks }: TaskListProps) {
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
   const [input, setInput] = useState('');
-
-  useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) setTasks(JSON.parse(stored));
-  }, []);
 
   function addTask() {
     const trimmed = input.trim();
@@ -31,9 +24,7 @@ export function TaskList({ initialTasks }: TaskListProps) {
       status: 'pending',
     };
 
-    const updated = [...tasks, next];
-    setTasks(updated);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    setTasks([...tasks, next]);
     setInput('');
   }
 
