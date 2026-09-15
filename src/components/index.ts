@@ -1,6 +1,3 @@
-export { Button } from './Button';
-export { Input } from './Input';
-export { TableRow } from './TableRow';
+export { Button, Input } from './ui';
 export { Header } from './Header';
-export { TaskTable } from './TaskTable';
-export { TaskList } from './TaskList';
+export { TaskList, TaskTable } from '../features/tasks';
